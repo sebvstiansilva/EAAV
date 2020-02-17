@@ -33,7 +33,6 @@
 	<script type="text/javascript" src="js/classie.js"></script>
 	<script type="text/javascript" src="js/magnific-popup.js"></script>
 	<script src="contactform/contactform.js"></script>
-	<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function () {
@@ -47,12 +46,34 @@
 	<script>
 		window.fbAsyncInit = function () {
 			FB.init({
-				appId: '2498632657053913',
+				appId: '428523584577304',
 				autoLogAppEvents: true,
 				xfbml: true,
 				version: 'v6.0'
 			});
+
+			FB.api(
+				'/seguridadgm/ratings?access_token=EAAGFvWwJXxgBAFTwvi9byGhEykPAK8dWavQoVEqBAahsr57vaXYwq4sE6A1pO37yIONoXZBZAhe2lYtUZAVjLgjULOku8H0alNtolhtYJETFirOpOKD9ZCB7VYXCmjkxuC7QcT5uxdjZBmrEROi5PLSeoJzEZCscY6u8MQdABGX4EpiUqsPit1cqMY9xYfFKkZD',
+				'GET',
+				{},
+				function (data) {
+					for (let i = 0; i < 4; i++) {
+						console.log(data[0]['review_text']);
+					}
+					
+				}
+			);
 		};
+
+		(function (d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) { return; }
+			js = d.createElement(s); js.id = id;
+			js.src = "https://connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+
+		
 	</script>
 
 	<header class="header" id="header">
@@ -138,8 +159,8 @@
 								</div>
 							</div>
 						</div>
-						<figure class="col-lg-6 col-sm-6 text-right wow fadeInUp delay-02s" style="text-align: center;">
-							<img src="img/servicios.jpg" width="70%" alt="">
+						<figure class="col-lg-6 col-sm-6 text-right wow fadeInUp delay-02s" style="text-align: center; padding: 0;">
+							<img src="img/servicios.jpg" width="80%" alt="">
 						</figure>
 					</div>
 		</div>
